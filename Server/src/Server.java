@@ -19,14 +19,21 @@ public class Server {
     }
 
     public void run (){
-        try {
-            Connection clientCo = new Connection (servSocket.accept());
-            (new Thread(){
-                public void run(){
-                    clientCo.run();
-                }}).start();
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        System.out.println("Server started");
+
+        while(true){
+            try {
+
+                Connection clientCo = new Connection (servSocket.accept());
+                System.out.println("New Thread");
+                (new Thread(){
+                    public void run(){
+                        clientCo.run();
+                    }}).start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
