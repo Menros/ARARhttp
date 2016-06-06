@@ -131,5 +131,19 @@ public class Connection extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //Closing
+
+        try {
+            sOStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            coSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
